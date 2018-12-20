@@ -12,7 +12,7 @@ class Picker extends React.Component {
       <form onSubmit={this.goToRes}>
         <label>
           Pick a list name
-          <input type="text" ref={this.resInputRef} />
+          <input type="text" ref={this.resInputRef} required />
         </label>
       </form>
     );
