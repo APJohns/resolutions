@@ -1,8 +1,17 @@
 import React from "react";
 
 class ResItem extends React.Component {
+  handleDelete = () => {
+    this.props.deleteRes(this.props.index);
+  };
+
   render() {
-    return <li>{this.props.resolution}</li>;
+    return (
+      <li>
+        <p>{this.props.resolution}</p>
+        <button onClick={this.handleDelete}>&times;</button>
+      </li>
+    );
   }
 }
 
