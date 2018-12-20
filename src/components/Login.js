@@ -6,6 +6,9 @@ const Login = props => (
     <button onClick={() => props.authenticate("Facebook")}>
       Login With Facebook
     </button>
+    <button onClick={() => props.authenticate("Github")}>
+      Login With Github
+    </button>
   </nav>
 );
 
