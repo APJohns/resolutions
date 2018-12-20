@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
-import base from "../base";
+import Login from "./Login";
+import base, { firebaseApp } from "../base";
 
 class App extends Component {
   state = {
@@ -14,11 +16,45 @@ class App extends Component {
       context: this,
       state: "resolutions"
     });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.authHandler({ user });
+      }
+    });
   }
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
+
+  authHandler = async authData => {
+    const { params } = this.props.match;
+    const resolution = await base.fetch(params.resId, { context: this });
+
+    if (!resolution.owner) {
+      await base.post(`${params.resId}/owner`, {
+        data: authData.user.uid
+      });
+    }
+
+    this.setState({
+      uid: authData.user.uid,
+      owner: resolution.owner || authData.user.uid
+    });
+  };
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseApp
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
+
+  logout = async () => {
+    await firebase.auth().signOut();
+    this.setState({ uid: null });
+  };
 
   addResolution = resolution => {
     const resolutions = { ...this.state.resolutions };
@@ -34,8 +70,22 @@ class App extends Component {
 
   render() {
     const { params } = this.props.match;
+    const logout = <button onClick={this.logout}>Logout</button>;
+
+    if (!this.state.uid) return <Login authenticate={this.authenticate} />;
+
+    if (this.state.uid !== this.state.owner) {
+      return (
+        <div>
+          <p>Sorry, you are not the owner!</p>
+          {logout}
+        </div>
+      );
+    }
+
     return (
       <main>
+        {logout}
         <h1 className="title">{params.resId}</h1>
         {Object.keys(this.state.resolutions).length > 0 ? (
           Object.keys(this.state.resolutions).map((item, i) => {
