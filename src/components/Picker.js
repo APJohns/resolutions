@@ -10,8 +10,10 @@ class Picker extends React.Component {
   render() {
     return (
       <form onSubmit={this.goToRes}>
-        <label for="res">Pick a list name</label>
-        <input type="text" name="res" ref={this.resInputRef} />
+        <label>
+          Pick a list name
+          <input type="text" ref={this.resInputRef} />
+        </label>
       </form>
     );
   }

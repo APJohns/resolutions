@@ -9,7 +9,9 @@ class ResItem extends React.Component {
     return (
       <li>
         <p>{this.props.resolution}</p>
-        <button onClick={this.handleDelete}>&times;</button>
+        <button className="delete" onClick={this.handleDelete}>
+          &times;
+        </button>
       </li>
     );
   }

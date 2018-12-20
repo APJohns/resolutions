@@ -11,7 +11,7 @@ class AddResolution extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="addResolution" onSubmit={this.handleSubmit}>
         <input type="text" ref={this.inputRef} />
         <button type="submit">New Resolution</button>
       </form>

@@ -70,7 +70,11 @@ class App extends Component {
 
   render() {
     const { params } = this.props.match;
-    const logout = <button onClick={this.logout}>Logout</button>;
+    const logout = (
+      <button className="logout" onClick={this.logout}>
+        Logout
+      </button>
+    );
 
     if (!this.state.uid) return <Login authenticate={this.authenticate} />;
 
@@ -84,25 +88,32 @@ class App extends Component {
     }
 
     return (
-      <main>
-        {logout}
-        <h1 className="title">{params.resId}</h1>
-        {Object.keys(this.state.resolutions).length > 0 ? (
-          Object.keys(this.state.resolutions).map((item, i) => {
-            if (this.state.resolutions[item])
-              return (
-                <Resolution
-                  key={i}
-                  index={item}
-                  resolution={this.state.resolutions[item]}
-                  deleteRes={this.deleteRes}
-                />
-              );
-          })
-        ) : (
-          <p>Looks like you haven't made any resolutions yet!</p>
-        )}
-        <AddResolution addResolution={this.addResolution} />
+      <main className="main">
+        <nav>
+          <h1>2019</h1>
+          {logout}
+        </nav>
+        <section className="list">
+          <h1 className="title">{params.resId}</h1>
+          {Object.keys(this.state.resolutions).length > 0 ? (
+            <ul className="resolutions">
+              {Object.keys(this.state.resolutions).map((item, i) => {
+                if (this.state.resolutions[item])
+                  return (
+                    <Resolution
+                      key={i}
+                      index={item}
+                      resolution={this.state.resolutions[item]}
+                      deleteRes={this.deleteRes}
+                    />
+                  );
+              })}
+            </ul>
+          ) : (
+            <p>Looks like you haven't made any resolutions yet!</p>
+          )}
+          <AddResolution addResolution={this.addResolution} />
+        </section>
       </main>
     );
   }
