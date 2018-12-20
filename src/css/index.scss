@@ -74,6 +74,7 @@ input {
   li {
     display: flex;
     padding: 20px 25px;
+    transition: all 0.5s ease;
 
     &:nth-child(odd) {
       background-color: $beige;
@@ -84,6 +85,7 @@ input {
     &:hover {
       background-color: $blue;
       color: $beige;
+      transition: all 0s ease;
     }
     &:hover .delete {
       display: block;
@@ -109,12 +111,11 @@ input {
     flex: 1;
     padding: 5px 25px;
     background-color: rgba(0, 0, 0, 0.2);
-    // outline: rgba(255, 215, 0, 0.5) solid 0;
     transition: all 0.1s ease-in-out;
 
     &:focus {
-      // outline: rgba(255, 215, 0, 0.5) solid 1px;
       box-shadow: 0 0 4px $gold;
+      background-color: rgba(0, 0, 0, 0.1);
       transition: all 0.1s ease-in-out;
     }
   }
