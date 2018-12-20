@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
+import base from "../base";
 
 class App extends Component {
   state = {
-    resolutions: {
-      res1: "Hello World!",
-      res2: "Like my list?"
-    }
+    resolutions: {}
   };
+
+  componentDidMount() {
+    const { params } = this.props.match;
+    this.ref = base.syncState(`${params.resId}/resolutions`, {
+      context: this,
+      state: "resolutions"
+    });
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   addResolution = resolution => {
     const resolutions = { ...this.state.resolutions };
@@ -24,7 +34,6 @@ class App extends Component {
 
   render() {
     const { params } = this.props.match;
-    console.log(params);
     return (
       <main>
         <h1 className="title">{params.resId}</h1>
