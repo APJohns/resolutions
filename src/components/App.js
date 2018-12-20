@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import ResItem from "./ResItem";
+import Resolution from "./Resolution";
+import AddResolution from "./AddResolution";
 
 class App extends Component {
   state = {
@@ -7,6 +8,12 @@ class App extends Component {
       res1: "Hello World!",
       res2: "Like my list?"
     }
+  };
+
+  addResolution = resolution => {
+    const resolutions = { ...this.state.resolutions };
+    resolutions[`res${Date.now()}`] = resolution;
+    this.setState({ resolutions });
   };
 
   deleteRes = key => {
@@ -25,7 +32,7 @@ class App extends Component {
           Object.keys(this.state.resolutions).map((item, i) => {
             if (this.state.resolutions[item])
               return (
-                <ResItem
+                <Resolution
                   key={i}
                   index={item}
                   resolution={this.state.resolutions[item]}
@@ -36,6 +43,7 @@ class App extends Component {
         ) : (
           <p>Looks like you haven't made any resolutions yet!</p>
         )}
+        <AddResolution addResolution={this.addResolution} />
       </main>
     );
   }
