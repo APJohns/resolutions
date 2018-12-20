@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
+import { Link } from "react-router-dom";
 import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
 import Login from "./Login";
@@ -72,7 +73,7 @@ class App extends Component {
     const { params } = this.props.match;
     const logout = (
       <button className="logout" onClick={this.logout}>
-        Logout
+        Log Out
       </button>
     );
 
@@ -90,7 +91,9 @@ class App extends Component {
     return (
       <main className="main">
         <nav>
-          <h1>2019</h1>
+          <Link to="/" className="logo">
+            2019
+          </Link>
           {logout}
         </nav>
         <section className="list">
