@@ -1,14 +1,25 @@
 @import "reset";
 
+$gold: #ffd700;
+$steelBlue: #3c7fa9;
+$beige: #f0ece4;
+$darkBeige: #e2ded5;
+$darkSlateBlue: #324e71;
+$blue: #559ac2;
+$peru: #d4724b;
+
+html,
 body {
   margin: 0;
   padding: 0;
   font-size: 18px;
+  font-family: Helvetica;
+  background-color: $steelBlue;
 }
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 15px;
+  font-weight: bold;
 }
 
 nav {
@@ -17,6 +28,10 @@ nav {
   .logout {
     margin-left: auto;
   }
+}
+
+.logout {
+  cursor: pointer;
 }
 
 button,
@@ -28,9 +43,13 @@ input {
 }
 
 .title {
-  background-color: #444;
-  color: #eee;
+  display: block;
+  position: relative;
+  background-color: $peru;
+  color: $beige;
   padding: 8px 25px;
+  box-shadow: 0 2px 4px rgba(90, 48, 31, 0.6);
+  z-index: 1;
 
   &:first-letter {
     text-transform: uppercase;
@@ -41,15 +60,20 @@ input {
   background-color: grey;
   width: 75%;
   margin: 25px auto;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 .resolutions {
-  margin-bottom: 15px;
-  padding: 15px 25px;
-
   li {
     display: flex;
+    padding: 15px 25px;
 
+    &:nth-child(odd) {
+      background-color: $beige;
+    }
+    &:nth-child(even) {
+      background-color: $darkBeige;
+    }
     &:hover .delete {
       display: block;
     }
@@ -60,19 +84,23 @@ input {
   background: none;
   border: none;
   display: none;
+  height: 1rem;
 }
 
 .addResolution {
   display: flex;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
 
   input {
+    color: $beige;
     flex: 1;
     padding: 5px 25px;
     background-color: rgba(0, 0, 0, 0.2);
   }
 
   button {
-    background-color: rgba(36, 209, 114, 0.5);
+    background-color: $gold;
+    padding: 0 20px;
     cursor: pointer;
   }
 }
