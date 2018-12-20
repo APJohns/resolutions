@@ -71,22 +71,6 @@ class App extends Component {
 
   render() {
     const { params } = this.props.match;
-    const logout = (
-      <button className="logout" onClick={this.logout}>
-        Log Out
-      </button>
-    );
-
-    if (!this.state.uid) return <Login authenticate={this.authenticate} />;
-
-    if (this.state.uid !== this.state.owner) {
-      return (
-        <div>
-          <p>Sorry, you are not the owner!</p>
-          {logout}
-        </div>
-      );
-    }
 
     return (
       <main className="main">
@@ -94,7 +78,13 @@ class App extends Component {
           <Link to="/" className="logo">
             2019
           </Link>
-          {logout}
+          {!this.state.uid ? (
+            <Login authenticate={this.authenticate} />
+          ) : (
+            <button className="logout" onClick={this.logout}>
+              Log Out
+            </button>
+          )}
         </nav>
         <section className="list">
           <h1 className="title">{params.resId}</h1>
@@ -108,14 +98,24 @@ class App extends Component {
                       index={item}
                       resolution={this.state.resolutions[item]}
                       deleteRes={this.deleteRes}
+                      isOwner={
+                        this.state.uid && this.state.uid === this.state.owner
+                      }
                     />
                   );
               })}
             </ul>
           ) : (
-            <p>Looks like you haven't made any resolutions yet!</p>
+            <p className="none">
+              Looks like you haven't made any resolutions yet!
+            </p>
           )}
-          <AddResolution addResolution={this.addResolution} />
+          {this.state.uid !== this.state.owner && (
+            <p>Sorry you aren't the owner of this list!</p>
+          )}
+          {this.state.uid && this.state.uid === this.state.owner && (
+            <AddResolution addResolution={this.addResolution} />
+          )}
         </section>
       </main>
     );

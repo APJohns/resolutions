@@ -2,16 +2,20 @@ import React from "react";
 
 class ResItem extends React.Component {
   handleDelete = () => {
-    this.props.deleteRes(this.props.index);
+    if (this.props.isOwner) {
+      this.props.deleteRes(this.props.index);
+    }
   };
 
   render() {
     return (
       <li>
         <p>{this.props.resolution}</p>
-        <button className="delete" onClick={this.handleDelete}>
-          &times;
-        </button>
+        {this.props.isOwner && (
+          <button className="delete" onClick={this.handleDelete}>
+            &times;
+          </button>
+        )}
       </li>
     );
   }

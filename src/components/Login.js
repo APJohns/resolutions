@@ -2,7 +2,6 @@ import React from "react";
 
 const Login = props => (
   <nav>
-    <h2>Login</h2>
     <button onClick={() => props.authenticate("Google")}>
       Login With Google
     </button>
