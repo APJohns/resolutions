@@ -1,14 +1,25 @@
 .picker {
-  padding: 25px;
   text-align: center;
-  border: 6px double #444;
+  max-width: 700px;
+  margin-top: 60px !important;
+
+  h1 {
+    padding: 10px 25px;
+    background-color: $peru;
+    color: $beige;
+  }
+
+  p {
+    padding: 10px 25px;
+  }
 
   input {
     display: block;
-    border-bottom: 2px solid $peru;
+    border-bottom: 2px solid $steelBlue;
     margin: 25px auto 5px auto;
     text-align: center;
     width: 50%;
+    padding: 10px 25px;
 
     &:focus {
       box-shadow: 0 0 4px $gold;
@@ -21,9 +32,11 @@
     margin-bottom: 25px;
     cursor: pointer;
     border-radius: 8px;
+    padding: 10px 25px;
 
     &:hover {
-      background-color: $peru;
+      background-color: $steelBlue;
+      color: $beige;
     }
   }
 }
