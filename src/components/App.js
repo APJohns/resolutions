@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { Link } from "react-router-dom";
 import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
-import Login from "./Login";
 import Countdown from "./Countdown";
+import Header from "./Header";
 import base, { firebaseApp } from "../base";
 
 class App extends Component {
@@ -75,18 +74,11 @@ class App extends Component {
 
     return (
       <main className="main">
-        <nav>
-          <Link to="/" className="logo">
-            2019
-          </Link>
-          {!this.state.uid ? (
-            <Login authenticate={this.authenticate} />
-          ) : (
-            <button className="logout" onClick={this.logout}>
-              Log Out
-            </button>
-          )}
-        </nav>
+        <Header
+          authenticate={this.authenticate}
+          logout={this.logout}
+          loggedOut={!this.state.uid}
+        />
         <section className="list">
           <h1 className="title">{params.resId}</h1>
           {Object.keys(this.state.resolutions).length > 0 ? (
