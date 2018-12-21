@@ -1,10 +1,13 @@
 import React from "react";
-import { countdown } from "../helpers";
 
 class Countdown extends React.Component {
   state = {
     intervalId: null,
-    time: ""
+    isDone: false,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   };
 
   componentDidMount() {
@@ -23,10 +26,15 @@ class Countdown extends React.Component {
 
       if (distance < 0) {
         clearInterval(intervalId);
-        this.setState({ time: "Happy New Year!!" });
+        this.setState({ isDone: true });
       }
 
-      this.setState({ time: `${days}d ${hours}h ${minutes}m ${seconds}s` });
+      this.setState({
+        days,
+        hours,
+        minutes,
+        seconds
+      });
     }, 1000);
     this.setState({ intervalId });
   }
@@ -36,7 +44,14 @@ class Countdown extends React.Component {
   }
 
   render() {
-    return <div>{this.state.time}</div>;
+    return (
+      <p className="countdown">
+        <span className="days time">{this.state.days}</span>
+        <span className="hours time">{this.state.hours}</span>
+        <span className="minutes time">{this.state.minutes}</span>
+        <span className="seconds time">{this.state.seconds}</span>
+      </p>
+    );
   }
 }
 
