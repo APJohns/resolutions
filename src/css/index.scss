@@ -150,8 +150,31 @@ input {
 
 .countdown {
   width: 75%;
+  max-width: 550px;
   margin: auto;
+  margin-top: 40px;
   text-align: center;
+  font-family: "PT Mono", monospace;
+  color: $beige;
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+.clock {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+.time {
   font-size: 2rem;
-  font-family: "Chewy", cursive;
+  font-weight: bold;
+}
+
+.timeMeasure {
+  font-size: 0.75rem;
+  color: rgba(204, 200, 190, 0.8);
+  font-weight: bold;
 }

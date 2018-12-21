@@ -39,18 +39,27 @@ class Countdown extends React.Component {
     this.setState({ intervalId });
   }
 
+  pad = input => input.toString().padStart(2, "0");
+
   componentWillUnmount() {
     clearInterval(this.state.intervalId);
   }
 
   render() {
     return (
-      <p className="countdown">
-        <span className="days time">{this.state.days}</span>
-        <span className="hours time">{this.state.hours}</span>
-        <span className="minutes time">{this.state.minutes}</span>
-        <span className="seconds time">{this.state.seconds}</span>
-      </p>
+      <div className="countdown">
+        <h2>Time Remaining</h2>
+        <section className="clock">
+          <div className="time">{this.pad(this.state.days)}</div>
+          <div className="time">{this.pad(this.state.hours)}</div>
+          <div className="time">{this.pad(this.state.minutes)}</div>
+          <div className="time">{this.pad(this.state.seconds)}</div>
+          <div className="timeMeasure">Days</div>
+          <div className="timeMeasure">Hours</div>
+          <div className="timeMeasure">Minutes</div>
+          <div className="timeMeasure">Seconds</div>
+        </section>
+      </div>
     );
   }
 }
