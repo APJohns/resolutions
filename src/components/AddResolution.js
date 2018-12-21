@@ -1,4 +1,5 @@
 import React from "react";
+import { getFunResolution } from "../helpers";
 
 class AddResolution extends React.Component {
   inputRef = React.createRef();
@@ -12,7 +13,12 @@ class AddResolution extends React.Component {
   render() {
     return (
       <form className="addResolution" onSubmit={this.handleSubmit}>
-        <input type="text" ref={this.inputRef} required />
+        <input
+          type="text"
+          ref={this.inputRef}
+          placeholder={`Eg. ${getFunResolution()}`}
+          required
+        />
         <button type="submit">Add Resolution</button>
       </form>
     );
