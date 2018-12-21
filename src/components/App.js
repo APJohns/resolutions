@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
 import Login from "./Login";
+import Countdown from "./Countdown";
 import base, { firebaseApp } from "../base";
 
 class App extends Component {
@@ -117,6 +118,7 @@ class App extends Component {
             <AddResolution addResolution={this.addResolution} />
           )}
         </section>
+        <Countdown />
       </main>
     );
   }
