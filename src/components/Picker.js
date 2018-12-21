@@ -1,10 +1,13 @@
 import React from "react";
+import { slugify } from "../helpers";
 
 class Picker extends React.Component {
   resInputRef = React.createRef();
   goToRes = e => {
     e.preventDefault();
-    this.props.history.push(`/resolutions/${this.resInputRef.current.value}`);
+    this.props.history.push(
+      `/resolutions/${slugify(this.resInputRef.current.value)}`
+    );
   };
 
   render() {
