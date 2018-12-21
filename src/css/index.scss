@@ -78,6 +78,13 @@ input {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border: 2px solid $darkBeige;
   overflow: hidden;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    margin: 0 auto;
+  }
 }
 
 .message {
@@ -120,6 +127,7 @@ input {
 
 .addResolution {
   display: flex;
+  flex-wrap: wrap;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
 
   input {
@@ -138,8 +146,9 @@ input {
 
   button {
     background-color: $gold;
-    padding: 0 20px;
+    padding: 10px 25px;
     cursor: pointer;
+    flex: 1;
     transition: all 0.1s ease-in-out;
 
     &:hover {
@@ -160,6 +169,10 @@ input {
   color: $beige;
   h2 {
     font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 1500px) {
+    width: 100%;
   }
 }
 
