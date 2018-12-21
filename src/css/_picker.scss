@@ -1,0 +1,29 @@
+.picker {
+  padding: 25px;
+  text-align: center;
+  border: 6px double #444;
+
+  input {
+    display: block;
+    border-bottom: 2px solid $peru;
+    margin: 25px auto 5px auto;
+    text-align: center;
+    width: 50%;
+
+    &:focus {
+      box-shadow: 0 0 4px $gold;
+      transition: all 0.1s ease-in-out;
+    }
+  }
+  button {
+    background-color: $gold;
+    width: 50%;
+    margin-bottom: 25px;
+    cursor: pointer;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: $peru;
+    }
+  }
+}

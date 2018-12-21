@@ -9,11 +9,12 @@ class Picker extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.goToRes}>
+      <form className="list picker" onSubmit={this.goToRes}>
         <label>
-          Pick a list name
-          <input type="text" ref={this.resInputRef} required />
+          <h1>Pick a list name</h1>
+          <input type="text" ref={this.resInputRef} autoFocus required />
         </label>
+        <button type="submit">Go To List ➡</button>
       </form>
     );
   }
