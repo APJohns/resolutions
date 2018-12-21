@@ -1,13 +1,6 @@
 @import "reset";
+@import "variables";
 @import "auth";
-
-$gold: #ffd700;
-$steelBlue: #3c7fa9;
-$beige: #f0ece4;
-$darkBeige: #e2ded5;
-$darkSlateBlue: #324e71;
-$blue: #559ac2;
-$peru: #d4724b;
 
 html,
 body {
@@ -85,7 +78,8 @@ input {
   overflow: hidden;
 }
 
-.none {
+.message {
+  text-align: center;
   padding: 20px 25px;
 }
 

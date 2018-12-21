@@ -1,0 +1,29 @@
+.loginBtns {
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+
+  button {
+    color: $beige;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(75%);
+    }
+  }
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.google {
+  background-color: #db4437;
+}
+
+.github {
+  background-color: #6e5494;
+}

@@ -106,12 +106,12 @@ class App extends Component {
               })}
             </ul>
           ) : (
-            <p className="none">
+            <p className="message">
               Looks like you haven't made any resolutions yet!
             </p>
           )}
           {this.state.uid !== this.state.owner && (
-            <p>Sorry you aren't the owner of this list!</p>
+            <p className="message">Sorry, you aren't the owner of this list!</p>
           )}
           {this.state.uid && this.state.uid === this.state.owner && (
             <AddResolution addResolution={this.addResolution} />

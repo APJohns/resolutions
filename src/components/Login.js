@@ -1,17 +1,17 @@
 import React from "react";
 
 const Login = props => (
-  <nav>
-    <button onClick={() => props.authenticate("Google")}>
+  <div className="loginBtns">
+    <button className="google" onClick={() => props.authenticate("Google")}>
       Login With Google
     </button>
-    <button onClick={() => props.authenticate("Facebook")}>
+    <button className="facebook" onClick={() => props.authenticate("Facebook")}>
       Login With Facebook
     </button>
-    <button onClick={() => props.authenticate("Github")}>
+    <button className="github" onClick={() => props.authenticate("Github")}>
       Login With Github
     </button>
-  </nav>
+  </div>
 );
 
 export default Login;
