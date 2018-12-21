@@ -9,7 +9,7 @@ body {
   padding: 0;
   font-size: 20px;
   font-family: Helvetica;
-  background-color: $steelBlue;
+  background-color: #202020;
   font-family: "Goudy Bookletter 1911", serif;
   color: #333;
 }
@@ -62,7 +62,7 @@ input {
   background-color: $peru;
   color: $beige;
   padding: 8px 25px;
-  box-shadow: 0 2px 4px rgba(90, 48, 31, 0.6);
+  box-shadow: 0 2px 4px rgba(90, 48, 31, 0.4);
   z-index: 1;
 
   &:first-letter {
@@ -75,19 +75,21 @@ input {
   background-color: $beige;
   width: 75%;
   margin: 25px auto;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  border: 2px solid $darkBeige;
   overflow: hidden;
 }
 
 .message {
   text-align: center;
-  padding: 20px 25px;
+  padding: 40px 25px;
 }
 
 .resolutions {
   li {
     display: flex;
     padding: 20px 25px;
+    border-left: 8px solid $steelBlue;
     transition: all 0.5s ease;
 
     &:nth-child(odd) {
@@ -118,12 +120,12 @@ input {
 
 .addResolution {
   display: flex;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
 
   input {
     color: $beige;
     flex: 1;
-    padding: 5px 25px;
+    padding: 10px 25px;
     background-color: rgba(0, 0, 0, 0.45);
     transition: all 0.1s ease-in-out;
 
