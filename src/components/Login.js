@@ -19,19 +19,19 @@ class Login extends React.Component {
             className="google"
             onClick={() => this.props.authenticate("Google")}
           >
-            Login With Google
+            Google
           </button>
           <button
             className="facebook"
             onClick={() => this.props.authenticate("Facebook")}
           >
-            Login With Facebook
+            Facebook
           </button>
           <button
             className="github"
             onClick={() => this.props.authenticate("Github")}
           >
-            Login With Github
+            Github
           </button>
         </div>
       </div>
