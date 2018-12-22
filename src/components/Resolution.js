@@ -14,13 +14,13 @@ class ResItem extends React.Component {
   render() {
     return (
       <li
-        className={this.state.toggle && "activeLi"}
+        className={this.state.toggle ? "activeLi" : undefined}
         onClick={() => this.setState({ toggle: !this.state.toggle })}
       >
         <p>{this.props.resolution}</p>
         {this.props.isOwner && (
           <button
-            className={`${this.state.toggle && "activeDel"} delete`}
+            className={`${this.state.toggle ? "activeDel" : undefined} delete`}
             onClick={this.handleDelete}
           >
             &times;

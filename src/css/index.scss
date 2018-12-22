@@ -64,16 +64,57 @@ input {
 
 .title {
   font-family: "Chewy", cursive;
-  display: block;
-  position: relative;
-  background-color: $peru;
-  color: $beige;
-  padding: 8px 25px;
-  box-shadow: 0 2px 4px rgba(90, 48, 31, 0.4);
-  z-index: 1;
 
   &:first-letter {
     text-transform: uppercase;
+  }
+}
+
+.titleBar {
+  padding: 8px 25px;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(90, 48, 31, 0.4);
+  position: relative;
+  background-color: $peru;
+  color: $beige;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  position: absolute;
+  right: 0;
+  width: 50vw;
+  background-color: rgba(240, 236, 228, 0.9);
+  color: #444;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid $steelBlue;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  ul li {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-bottom: 1rem;
+  }
+}
+
+.tips {
+  position: relative;
+
+  img {
+    opacity: 0.65;
+  }
+
+  &:hover .info {
+    opacity: 1;
   }
 }
 
@@ -84,7 +125,6 @@ input {
   margin: 25px auto;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
   border: 2px solid $darkBeige;
-  overflow: hidden;
 
   @media screen and (max-width: 600px) {
     width: 100%;

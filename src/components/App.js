@@ -5,6 +5,7 @@ import Countdown from "./Countdown";
 import Header from "./Header";
 import ResolutionList from "./ResolutionList";
 import base, { firebaseApp } from "../base";
+import information from "../images/icons/icon-information.svg";
 
 class App extends Component {
   state = {
@@ -81,7 +82,26 @@ class App extends Component {
         />
 
         <section className="list">
-          <h1 className="title">{params.resId}</h1>
+          <div className="titleBar">
+            <h1 className="title">{params.resId}</h1>
+            <div className="tips">
+              <img src={information} alt="information" />
+              <div className="info">
+                <h2>Tips</h2>
+                <ul>
+                  <li>
+                    Have an accountabilibuddy. Share your resolutions with
+                    someone close to you who can help keep you on track.
+                  </li>
+                  <li>
+                    Set S.M.A.R.T. goals. Specific, Measurable, Attainable,
+                    Relevant, and Time-based. Eg. "Go to the gym twice a week
+                    for 30 minutes" instead of "Go to the gym."
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <ResolutionList
             resolutions={this.state.resolutions}
             deleteRes={this.deleteRes}
