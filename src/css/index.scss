@@ -92,6 +92,26 @@ input {
   padding: 40px 25px;
 }
 
+.resolution-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  &.resolution-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.activeLi.resolution-exit {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 0.2s ease-out;
+  &.resolution-exit-active {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
 li.activeLi {
   background-color: $blue !important;
   color: $beige;
@@ -103,6 +123,8 @@ button.activeDel {
 }
 
 .resolutions {
+  transition: all 0.2s ease-in-out;
+
   li {
     display: flex;
     padding: 20px 25px;
