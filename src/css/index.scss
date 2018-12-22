@@ -7,10 +7,9 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-size: 20px;
-  font-family: Helvetica;
+  font-size: 18px;
   background-color: #202020;
-  font-family: "Goudy Bookletter 1911", serif;
+  font-family: "Fira Sans", sans-serif;
   color: #333;
 }
 
@@ -54,7 +53,7 @@ nav {
 
 button,
 input {
-  font-family: "Goudy Bookletter 1911", serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1rem;
   box-sizing: border-box;
   border: none;
@@ -86,17 +85,19 @@ input {
   position: absolute;
   right: 0;
   width: 50vw;
-  background-color: rgba(240, 236, 228, 0.9);
+  background-color: rgba(240, 236, 228, 0.95);
   color: #444;
   padding: 15px;
   border-radius: 8px;
   border: 2px solid $steelBlue;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  line-height: 1.3rem;
 
   h2 {
-    font-weight: bold;
     margin-bottom: 1rem;
+    font-family: "chewy", cursive;
+    font-size: 1.5rem;
   }
 
   ul li {
