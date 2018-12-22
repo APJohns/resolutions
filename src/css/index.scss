@@ -14,6 +14,10 @@ body {
   color: #333;
 }
 
+body {
+  padding-bottom: 50px;
+}
+
 h1 {
   font-size: 2rem;
   font-weight: bold;
@@ -246,14 +250,12 @@ button.activeDel {
 }
 
 .contact {
+  margin-top: 50px;
   font-size: 0.8rem;
   line-height: 1rem;
   color: $darkBeige;
   text-align: center;
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
+  width: 100%;
 
   a {
     color: $steelBlue;
