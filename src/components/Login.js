@@ -1,17 +1,42 @@
 import React from "react";
 
-const Login = props => (
-  <div className="loginBtns">
-    <button className="google" onClick={() => props.authenticate("Google")}>
-      Login With Google
-    </button>
-    <button className="facebook" onClick={() => props.authenticate("Facebook")}>
-      Login With Facebook
-    </button>
-    <button className="github" onClick={() => props.authenticate("Github")}>
-      Login With Github
-    </button>
-  </div>
-);
+class Login extends React.Component {
+  state = {
+    toggle: false
+  };
+
+  render() {
+    return (
+      <div className="loginSection">
+        <button
+          className="loginBtn"
+          onClick={() => this.setState({ toggle: !this.state.toggle })}
+        >
+          Login
+        </button>
+        <div className={`loginBtns ${this.state.toggle && "showLogin"}`}>
+          <button
+            className="google"
+            onClick={() => this.props.authenticate("Google")}
+          >
+            Login With Google
+          </button>
+          <button
+            className="facebook"
+            onClick={() => this.props.authenticate("Facebook")}
+          >
+            Login With Facebook
+          </button>
+          <button
+            className="github"
+            onClick={() => this.props.authenticate("Github")}
+          >
+            Login With Github
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Login;
