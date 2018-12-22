@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import Resolution from "./Resolution";
 import AddResolution from "./AddResolution";
 import Countdown from "./Countdown";
 import Header from "./Header";
+import ResolutionList from "./ResolutionList";
 import base, { firebaseApp } from "../base";
 
 class App extends Component {
@@ -80,38 +79,14 @@ class App extends Component {
           logout={this.logout}
           loggedOut={!this.state.uid}
         />
+
         <section className="list">
           <h1 className="title">{params.resId}</h1>
-          {Object.keys(this.state.resolutions).length > 0 ? (
-            <TransitionGroup component="ul" className="resolutions">
-              {Object.keys(this.state.resolutions).map((item, i) => {
-                if (this.state.resolutions[item])
-                  return (
-                    <CSSTransition
-                      classNames="resolution"
-                      key={i}
-                      timeout={{ enter: 200, exit: 200 }}
-                    >
-                      <Resolution
-                        key={i}
-                        index={item}
-                        resolution={this.state.resolutions[item]}
-                        deleteRes={this.deleteRes}
-                        isOwner={
-                          this.state.uid && this.state.uid === this.state.owner
-                        }
-                      />
-                    </CSSTransition>
-                  );
-                else return null;
-              })}
-            </TransitionGroup>
-          ) : (
-            <p className="message">
-              Looks like you haven't made any resolutions yet. Get those ideas
-              brewing!
-            </p>
-          )}
+          <ResolutionList
+            resolutions={this.state.resolutions}
+            deleteRes={this.deleteRes}
+            isOwner={this.state.uid && this.state.uid === this.state.owner}
+          />
           {this.state.uid !== this.state.owner && (
             <p className="message">Sorry, you aren't the owner of this list!</p>
           )}
@@ -119,6 +94,7 @@ class App extends Component {
             <AddResolution addResolution={this.addResolution} />
           )}
         </section>
+
         <Countdown />
       </main>
     );
