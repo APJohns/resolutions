@@ -101,7 +101,8 @@ class App extends Component {
             </ul>
           ) : (
             <p className="message">
-              Looks like you haven't made any resolutions yet!
+              Looks like you haven't made any resolutions yet. Get those ideas
+              brewing!
             </p>
           )}
           {this.state.uid !== this.state.owner && (
