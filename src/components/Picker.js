@@ -12,17 +12,22 @@ class Picker extends React.Component {
 
   render() {
     return (
-      <form className="picker list" onSubmit={this.goToRes}>
-        <label>
-          <h1>Pick a list name</h1>
-          <p>
-            Enter a name for your list below, and if the name isn't taken we can
-            get started! Let's make this year even better than the last!
-          </p>
-          <input type="text" ref={this.resInputRef} autoFocus required />
-        </label>
-        <button type="submit">Go To List ➡</button>
-      </form>
+      <>
+        <nav>
+          <div className="logo">Sick Resolutions</div>
+        </nav>
+        <form className="picker list" onSubmit={this.goToRes}>
+          <label>
+            <h1>Pick a list name</h1>
+            <p>
+              Enter a name for your list below, and if the name isn't taken we
+              can get started! Let's make this year even better than the last!
+            </p>
+            <input type="text" ref={this.resInputRef} autoFocus required />
+          </label>
+          <button type="submit">Go To List ➡</button>
+        </form>
+      </>
     );
   }
 }
