@@ -1,7 +1,3 @@
-.loginSection {
-  margin-left: auto;
-}
-
 .loginBtns {
   position: absolute;
   top: 2.2rem;
@@ -41,6 +37,8 @@
 }
 
 .loginBtn {
+  padding: 2px 0;
+  margin-left: 5px;
   color: $beige;
   cursor: pointer;
 

@@ -24,7 +24,6 @@ nav {
   padding: 10px 2%;
 
   .logout {
-    margin-left: auto;
     color: $beige;
   }
 }
@@ -221,4 +220,23 @@ button.activeDel {
   font-size: 0.75rem;
   color: rgba(204, 200, 190, 0.8);
   font-weight: bold;
+}
+
+.share {
+  color: $blue;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.shareImg {
+  width: 30px;
+
+  &:hover {
+    filter: brightness(75%);
+  }
+}
+
+.rightNav {
+  margin-left: auto;
+  display: flex;
 }
