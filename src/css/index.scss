@@ -72,6 +72,7 @@ input {
 .titleBar {
   padding: 8px 25px;
   z-index: 1;
+  border-radius: 8px 8px 0 0;
   box-shadow: 0 2px 4px rgba(90, 48, 31, 0.4);
   position: relative;
   background-color: $peru;
@@ -92,7 +93,9 @@ input {
   border: 2px solid $steelBlue;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  display: none;
   line-height: 1.3rem;
+  transition: all 1s ease;
 
   h2 {
     margin-bottom: 1rem;
@@ -112,10 +115,11 @@ input {
 
   img {
     opacity: 0.65;
-  }
-
-  &:hover .info {
-    opacity: 1;
+    &:hover + .info {
+      display: block;
+      opacity: 1;
+      transition: all 1s ease;
+    }
   }
 }
 
@@ -125,7 +129,7 @@ input {
   width: 75%;
   margin: 25px auto;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
-  border: 2px solid $darkBeige;
+  border: 3px solid $darkBeige;
 
   @media screen and (max-width: 600px) {
     width: 100%;
@@ -171,6 +175,8 @@ button.activeDel {
 }
 
 .resolutions {
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
   transition: all 0.2s ease-in-out;
 
   li {
