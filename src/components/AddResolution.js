@@ -19,7 +19,7 @@ class AddResolution extends React.Component {
           placeholder={`Eg. ${getFunResolution()}`}
           required
         />
-        <button type="submit">Add Resolution</button>
+        <button type="submit">Add</button>
       </form>
     );
   }

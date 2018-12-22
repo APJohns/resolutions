@@ -7,7 +7,7 @@ import twitter from "../images/Twitter.svg";
 const Header = props => (
   <nav>
     <Link to="/" className="logo">
-      Resolutions
+      Sick Resolutions
     </Link>
     <div className="rightNav">
       <a
