@@ -86,6 +86,7 @@ class App extends Component {
             resolutions={this.state.resolutions}
             deleteRes={this.deleteRes}
             isOwner={this.state.uid && this.state.uid === this.state.owner}
+            index={params.resId}
           />
           {this.state.uid !== this.state.owner && (
             <p className="message">Sorry, you aren't the owner of this list!</p>

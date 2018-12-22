@@ -7,6 +7,20 @@ const Header = props => (
     <Link to="/" className="logo">
       Resolutions
     </Link>
+    <a
+      href={`https://www.facebook.com/sharer/sharer.php?u=sickresolutions.com/resolutions/${
+        props.index
+      }`}
+    >
+      Facebook
+    </a>
+    <a
+      href={`https://twitter.com/home?status=Check%20out%20my%20resolutions%20this%20year!%20sickresolutions.com/resolutions/${
+        props.index
+      }`}
+    >
+      Twitter
+    </a>
     {props.loggedOut ? (
       <Login authenticate={props.authenticate} />
     ) : (
