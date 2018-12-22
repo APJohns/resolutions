@@ -92,6 +92,16 @@ input {
   padding: 40px 25px;
 }
 
+li.activeLi {
+  background-color: $blue !important;
+  color: $beige;
+  transition: all 0s ease;
+}
+
+button.activeDel {
+  display: block;
+}
+
 .resolutions {
   li {
     display: flex;
@@ -106,9 +116,7 @@ input {
       background-color: $darkBeige;
     }
     &:hover {
-      background-color: $blue;
-      color: $beige;
-      transition: all 0s ease;
+      @extend .activeLi;
     }
     &:hover .delete {
       display: block;
