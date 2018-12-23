@@ -98,6 +98,10 @@ class App extends Component {
                     Relevant, and Time-based. Eg. "Go to the gym twice a week
                     for 30 minutes" instead of "Go to the gym."
                   </li>
+                  <li>
+                    Bookmark this page to have quick and easy access to your
+                    resolutions. It'll also helps you not forget about them.
+                  </li>
                 </ul>
               </div>
             </div>
