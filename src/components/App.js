@@ -9,15 +9,19 @@ import information from "../images/icons/icon-information.svg";
 
 class App extends Component {
   state = {
+    owner: "",
     resolutions: {}
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { params } = this.props.match;
     this.ref = base.syncState(`${params.resId}/resolutions`, {
       context: this,
       state: "resolutions"
     });
+    const resolution = await base.fetch(params.resId, { context: this });
+    const owner = !resolution.owner ? null : resolution.owner;
+    this.setState({ owner });
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.authHandler({ user });
@@ -28,6 +32,12 @@ class App extends Component {
   componentWillUnmount() {
     base.removeBinding(this.ref);
   }
+
+  getOwner = async () => {
+    const { params } = this.props.match;
+    const resolution = await base.fetch(params.resId, { context: this });
+    return !resolution.owner ? null : resolution.owner;
+  };
 
   authHandler = async authData => {
     const { params } = this.props.match;
@@ -115,9 +125,28 @@ class App extends Component {
           {!this.state.owner && (
             <p className="message">
               No one has claimed this list yet. Login to claim it for yourself!
+              <br />
+              <button
+                className="google"
+                onClick={() => this.authenticate("Google")}
+              >
+                Google
+              </button>
+              <button
+                className="facebook"
+                onClick={() => this.authenticate("Facebook")}
+              >
+                Facebook
+              </button>
+              <button
+                className="github"
+                onClick={() => this.authenticate("Github")}
+              >
+                Github
+              </button>
             </p>
           )}
-          {this.state.uid !== this.state.owner && (
+          {this.state.uid && this.state.uid !== this.state.owner && (
             <p className="message">Sorry, you aren't the owner of this list!</p>
           )}
           {this.state.uid && this.state.uid === this.state.owner && (
