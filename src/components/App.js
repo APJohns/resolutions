@@ -108,6 +108,11 @@ class App extends Component {
             isOwner={this.state.uid && this.state.uid === this.state.owner}
             index={params.resId}
           />
+          {!this.state.owner && (
+            <p className="message">
+              No one has claimed this list yet. Login to claim it for yourself!
+            </p>
+          )}
           {this.state.uid !== this.state.owner && (
             <p className="message">Sorry, you aren't the owner of this list!</p>
           )}
